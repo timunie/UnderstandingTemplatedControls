@@ -1,0 +1,22 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:my="using:UnderstandingTemplatedControls.Controls">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <my:MyControl Width="200" FileName="myFileName" />
+        </Border>
+    </Design.PreviewWith>
+
+	<Style Selector="my|MyControl">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<DockPanel>
+						<Button DockPanel.Dock="Right" Content="..." />
+						<TextBox Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FileName}" /> 
+					</DockPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</Styles>
