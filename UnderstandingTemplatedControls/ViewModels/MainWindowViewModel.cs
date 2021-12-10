@@ -56,6 +56,6 @@ namespace UnderstandingTemplatedControls.ViewModels
             return ValidationResult.Success;
         }
 
-
+        public OtherViewModel OtherViewModel { get; } = new();
     }
 }
