@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:uc="using:UnderstandingTemplatedControls.Views"
-		
+		xmlns:my="using:UnderstandingTemplatedControls.Controls"
+		x:DataType="vm:MainWindowViewModel"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="UnderstandingTemplatedControls.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -14,5 +15,24 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<uc:MyTemplatedControl/>
+	<TabControl>
+		<TabItem Header="TemplatedControl">
+			<StackPanel>
+				<TextBlock>Our Templated Control Demo</TextBlock>
+				<my:MyControl HorizontalAlignment="Stretch" FileName="{CompiledBinding File1}" />
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Direct Content">
+			<StackPanel Spacing="5" Margin="10">
+				<TextBlock>And now with Validation enabled</TextBlock>
+				<TextBox Classes="clearTextButton" Text="{CompiledBinding File1}" />
+				<TextBox Classes="clearTextButton" Text="{CompiledBinding File2}" />
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="UserControl">
+			<uc:UserControlExample DataContext="{CompiledBinding OtherViewModel}" />
+		</TabItem>
+	</TabControl>
+	
+	
 </Window>
