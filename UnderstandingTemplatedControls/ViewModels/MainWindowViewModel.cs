@@ -49,7 +49,7 @@ namespace UnderstandingTemplatedControls.ViewModels
 
         public static ValidationResult? MyValidation(object? value, ValidationContext validationContext)
         {
-            if (value == null)
+            if (value?.ToString() == "error")
             {
                 return new ValidationResult("You should type something ...");
             }
